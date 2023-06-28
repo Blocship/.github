@@ -5,7 +5,7 @@
 </p>
 
 <!-- Image -->
-![Site preview](./blocship_cover.jpeg)
+![Site preview](blocship_cover.jpeg)
 
 At Blocship, our mission is to craft engaging mobile experiences for tomorrow's game-changers. We specialize in developing mobile applications for innovative startups, and we are passionate about helping these companies succeed.
 
