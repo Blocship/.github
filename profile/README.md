@@ -1,11 +1,4 @@
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <h1 align="center">Hey, this is us 👋</h1>
-</p>
-
-<!-- Image -->
-![Site preview](https://github.com/Blocship/.github/assets/35165481/578f054e-e680-4344-90a0-c701fccd8531)
+### Hey, this is us 👋
 
 At Blocship, our mission is to craft engaging mobile experiences for tomorrow's game-changers. We specialize in developing mobile applications for innovative startups, and we are passionate about helping these companies succeed.
 
