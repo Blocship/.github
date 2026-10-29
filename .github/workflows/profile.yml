@@ -1,0 +1,42 @@
+# Regenerates the live open-source cards for the org profile README and
+# publishes them to the `generated` branch. Static art in profile/assets is
+# built locally with scripts/build_org.py.
+name: Org profile assets
+
+on:
+  schedule:
+    - cron: "41 */12 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main, revamp]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: org-profile-assets
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet fonttools brotli
+      - name: Render open-source cards
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/build_oss.py dist
+      - name: Publish to the generated branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: generated
+          build_dir: dist
+          commit_message: "chore: regenerate org profile assets"
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
